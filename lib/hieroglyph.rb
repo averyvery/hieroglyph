@@ -140,7 +140,7 @@ module Hieroglyph
       @font.save
       puts " "
       puts "'#{@name}' saved to #{@font.dest_path}"
-      puts "To create a full webfont, upload to http://www.fontsquirrel.com/fontface/generator"
+      puts "To create a full set of webfonts, upload to http://www.fontsquirrel.com/fontface/generator"
     end
   end
 
