@@ -1,6 +1,6 @@
 # Hieroglyph
 
-Convert a folder full of icons into an icon font, ready for use on the web.
+Convert a folder full of icons into an icon font, ready for use on the web. Output is an SVG font, which can be converted to a full set of webfonts over at [Fontsquirrel.](http://www.fontsquirrel.com/fontface/generator)
 
 ## Installation
 
@@ -17,6 +17,8 @@ All arguments are optional. If you leave off any of them, the defaults used will
 - 'MyFont' for fontname
 - 'glyphs' for glyph path
 - The current directory for destination path
+
+Usually, I just run <code>hieroglyph FontName</code> from the directory my glyphs are in.
 
 ## Making Glyphs
 
