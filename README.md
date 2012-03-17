@@ -4,13 +4,13 @@ Convert a folder full of icons into an icon font, ready for use on the web.
 
 ## Installation
 
-		gem install hieroglyph
+	gem install hieroglyph
 
 ## Usage
 
 Create a directory full of SVG glyphs, and run:
 
-		hieroglyph FontName path/to/glyphs destination/path
+	hieroglyph FontName path/to/glyphs destination/path
 
 All arguments are optional. If you leave off any of them, the defaults used will be:
 
