@@ -29,8 +29,9 @@ All arguments are optional. If you leave off any of them, the defaults used will
 
 ## Todo
 
-- Parse from EPS or SVG
-- Include an example SVG glyph
+- Use nokogiri for parsing XML instead of...you know....regex.
+- Parse from EPS or SVG.
+- Include an example SVG glyph.
 - Use private use unicode symbols for accessibility reasons:
 	- https://twitter.com/#!/danscotton/statuses/180321697449263106
 	- http://en.wikipedia.org/wiki/Private_Use_(Unicode)
