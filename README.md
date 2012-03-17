@@ -25,7 +25,7 @@ All arguments are optional. If you leave off any of them, the defaults used will
 - Center it horizontally
 - Vertically, fit it between ~y288 and ~y1025
 	- Tip: Use Illustrator's Transform palette to set the icon to 737pt high, with a y of 656 and x of 500
-- Save it as a-[iconname].svg in your glyphs folder, 'a' being the letter you want it to be in your final font
+- Save it as a-[iconname].svg in your glyphs folder, 'a' being the letter you want to map the glyph to. [iconname] can be anything, it's just to help you remember which icon you used.
 
 ## Todo
 
