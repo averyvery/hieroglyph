@@ -129,7 +129,7 @@ module Hieroglyph
   class CLI
     def initialize(args) 
       @args = args
-      @name = @args[0] || "myfont"
+      @name = @args[0] || "MyFont"
       @source = @args[1] || "glyphs"
       @destination = @args[2] || "."
       execute

@@ -14,7 +14,7 @@ Create a directory full of SVG glyphs, and run:
 
 All arguments are optional. If you leave off any of them, the defaults used will be:
 
-- MyFont for fontname
+- 'MyFont' for fontname
 - 'glyphs' for glyph path
 - The current directory for destination path
 
