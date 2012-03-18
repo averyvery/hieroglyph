@@ -10,7 +10,7 @@ Convert a folder full of icons into an icon font, ready for use on the web. Outp
 
 Create a directory full of SVG glyphs, and run:
 
-	hieroglyph FontName path/to/glyphs destination/path
+	hieroglyph make FontName path/to/glyphs destination/path
 
 All arguments are optional. If you leave off any of them, the defaults used will be:
 
@@ -19,6 +19,12 @@ All arguments are optional. If you leave off any of them, the defaults used will
 - The current directory for destination path
 
 Usually, I just run <code>hieroglyph FontName</code> from the directory my glyphs are in.
+
+To generate an example directory of glyphs into the current directory, just run:
+
+	hieroglyph example
+
+This should help you get started.
 
 ## Making Glyphs
 
@@ -32,6 +38,7 @@ Usually, I just run <code>hieroglyph FontName</code> from the directory my glyph
 ## Todo
 
 - Use nokogiri for parsing XML instead of...you know....regex.
+- Generate a character sheet
 - Parse from EPS or SVG.
 - Include an example SVG glyph.
 - Use private use unicode symbols for accessibility reasons:
