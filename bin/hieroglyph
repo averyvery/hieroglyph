@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-$LOAD_PATH.unshift File.join(File.dirname(__FILE__), "..", 'lib')
-require "Hieroglyph"
 
-Hieroglyph::Interface.new(ARGV)
+require "#{File.dirname(__FILE__)}/../lib/hieroglyph/command_line.rb"
+
+Jammit::CommandLine.newieroglyph::Interface.new(ARGV)
