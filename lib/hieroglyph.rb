@@ -21,13 +21,8 @@ module Hieroglyph
       Hieroglyph.log "Glyph: #{@letter}"
 
       @contents = Nokogiri::XML(File.new(file))
-      @polygon = @contents.root.parse("polygon").first
-      @path = @contents.root.xpath("path").first
-
-      if(@contents.match('polygon'))
-        Hieroglyph.log "....polygon found. Converting to path..."
-        @path = convert_polygon
-      else
+      @polygon = @contents.root.at_css("polygon")
+      @path = @polygon.nil? ? convert_path: convert_polygon
 
       Hieroglyph.log "....path found. Parsing subpaths."
 
@@ -73,8 +68,14 @@ module Hieroglyph
       @path = @path.to_command
     end
 
+    def convert_path
+      @path = @contents.root.at_css("path")["d"] 
+      @path = Savage::Parser.parse @path
+    end
+
     def convert_polygon
-      points = @polygon.split(" ")
+      Hieroglyph.log "....polygon found. Converting to path..."
+      points = @polygon["points"].split(" ")
       Savage::Path.new do |path|
         start_position = points.shift.split(",")
         path.move_to(start_position[0], start_position[1])
