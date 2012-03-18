@@ -39,8 +39,7 @@ This should help you get started.
 
 - Use nokogiri for parsing XML instead of...you know....regex.
 - Generate a character sheet
-- Parse from EPS or SVG.
-- Include an example SVG glyph.
+- Parse from EPS _or_ SVG. Not sure if this is doable with available technology.
 - Use private use unicode symbols for accessibility reasons:
 	- https://twitter.com/#!/danscotton/statuses/180321697449263106
 	- http://en.wikipedia.org/wiki/Private_Use_(Unicode)

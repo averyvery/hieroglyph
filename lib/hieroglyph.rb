@@ -14,24 +14,22 @@ module Hieroglyph
 
   class Glyph
 
-    def initialize(svg_path, source)
+    def initialize(file, source)
 
-      @letter = svg_path.gsub(source, "").gsub("/", "").each_char.first
+      @letter = file.gsub(source, "").gsub("/", "").each_char.first
       Hieroglyph.log " "
       Hieroglyph.log "Glyph: #{@letter}"
 
-      file = File.open(svg_path).read
+      @contents = Nokogiri::XML(File.new(file))
+      @polygon = @contents.root.parse("polygon").first
+      @path = @contents.root.xpath("path").first
 
-      if(file.match('polygon'))
-        Hieroglyph.log "....polygon found. Converting to path."
-        polygon = file.scan(/(?<=\spoints\=["']).*?(?=["'])/m)[0].gsub(/[\n\r\t]/, " ").squeeze(" ")
-        @path = convert_polygon(polygon)
-        Hieroglyph.log "....conversion complete. Parsing subpaths."
+      if(@contents.match('polygon'))
+        Hieroglyph.log "....polygon found. Converting to path..."
+        @path = convert_polygon
       else
-        Hieroglyph.log "....paths found. Parsing subpaths."
-        @path = file.scan(/(?<=\sd\=["']).*?(?=["'])/m)[0].gsub(/[\n\r\t]/, " ").squeeze(" ")
-        @path = Savage::Parser.parse @path
-      end
+
+      Hieroglyph.log "....path found. Parsing subpaths."
 
       @path.subpaths.each do |subpath|
         subpath.directions.each do |direction|
@@ -75,8 +73,8 @@ module Hieroglyph
       @path = @path.to_command
     end
 
-    def convert_polygon(polygon)
-      points = polygon.split(" ")
+    def convert_polygon
+      points = @polygon.split(" ")
       Savage::Path.new do |path|
         start_position = points.shift.split(",")
         path.move_to(start_position[0], start_position[1])
@@ -145,8 +143,8 @@ module Hieroglyph
 
     def add_glyphs
       Hieroglyph.log "Reading from #{@source_path}"
-      Dir.glob(@source_path).each do |svg_path|
-        glyph = Glyph.new(svg_path, @source)
+      Dir.glob(@source_path).each do |file|
+        glyph = Glyph.new(file, @source)
         write(glyph.to_node)
       end
     end
@@ -168,7 +166,7 @@ module Hieroglyph
     def example
       Hieroglyph.log "Outputting example glyphs"
       glyph_path = File.join(File.dirname(__FILE__), "hieroglyph/glyphs")
-      exec "cp #{glyph_path} ./"
+      exec "cp -r #{glyph_path} ./"
     end
 
     def make
