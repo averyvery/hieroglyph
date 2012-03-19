@@ -4,8 +4,8 @@ require File.expand_path('../lib/hieroglyph/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Doug Avery"]
   gem.email         = ["dougunderscorenelson@gmail.com"]
-  gem.description   = "Create an SVG font from a directory of SVG icons"
-  gem.summary       = "Create an SVG font from a directory of SVG icons"
+  gem.description   = "Generate a web-ready SVG font from a directory of SVG icons"
+  gem.summary       = "Icon font creator"
   gem.homepage      = "http://github.com/averyvery/hieroglyph"
 
   gem.files         = `git ls-files`.split($\)
