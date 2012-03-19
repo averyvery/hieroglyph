@@ -20,6 +20,7 @@ module Hieroglyph
       end 
 
       def save
+        name = @options[:name]
         img = @characters.montage do
           self.background_color = "#ffffff"
           self.border_width = 20
@@ -27,7 +28,7 @@ module Hieroglyph
           self.fill = "#000000"
           self.geometry = "150x150+10+5"
           self.matte_color = "#ffffff"
-          self.title = @options[:name]
+          self.title = name
         end
         img.write(@output_path)
       end
