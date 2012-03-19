@@ -1,5 +1,6 @@
 require 'hieroglyph/glyph'
 require 'hieroglyph/font'
+require 'hieroglyph/character_sheet'
 
 module Hieroglyph
 
