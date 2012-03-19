@@ -35,7 +35,15 @@ module Hieroglyph
     end
 
   else
-    puts "No rmagick"
+    # No-op
+    class CharacterSheet
+      def initialize(*)
+      end
+      def add(file, name)
+      end
+      def save
+      end
+    end
   end
 
 end
