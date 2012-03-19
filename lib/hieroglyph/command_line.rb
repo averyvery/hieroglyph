@@ -1,5 +1,4 @@
-#!/usr/bin/env ruby
-
+require "optparse"
 require File.expand_path(File.dirname(__FILE__) + '/../hieroglyph')
 
 module Hieroglyph
@@ -10,18 +9,18 @@ module Hieroglyph
 
 Usage: hieroglyph OPTIONS
 
-Run hieropgly to generate an SVG font from a folder of SVG glyphs.
+Run hieroglyph to generate an SVG font from a folder of SVG glyphs.
 
 Options:
     EOS
 
-    @execute = true
-
     def initialize
+      @execute = true
       parse_options
       if @execute
-        Font.new(@options)
-        Hieroglyph.log "", "  Saved to #{@options[:destination]}", "", "=== #{@options[:name]} generated ===", ""
+        puts 'hi'
+        Hieroglyph.make @options
+        Hieroglyph.log "", "  Saved to #{@options[:output_folder]}", "", "=== #{@options[:name]} generated ===", ""
         Hieroglyph.log "To create a full set of webfonts, upload to:", "http://www.fontsquirrel.com/fontface/generator", ""
       end
     end
@@ -33,7 +32,7 @@ Options:
         :glyph_folder => "glyphs"
       }
       @option_parser = OptionParser.new do |opts|
-        opts.on("-n", "--name NAME", 'name of the font you want generated') do |name|
+        opts.on("-n", "--name NAME", "name of the font you want generated") do |name|
           @options[:name] = name
         end
         opts.on("-o", "--output OUTPUT_FOLDER", "where to output the generated font") do |output_folder|
@@ -44,10 +43,9 @@ Options:
         end
         opts.on("-e", "--example", "output set of example glyphs") do |output_folder|
           @execute = false
-          Hieroglyph.log "=== Outputting example glyphs ==="
-          glyph_path = File.join(File.dirname(__FILE__), "hieroglyph/assets/glyphs")
-          exec "cp -r #{glyph_path} #{output_folder}/glyphs"
-          exit
+          Hieroglyph.log "Example glyphs saved to #{Dir.pwd}/glyphs"
+          glyphs_path = File.join(File.dirname(__FILE__), "assets/glyphs")
+          exec "cp -r #{glyphs_path} ./"
         end
         opts.on_tail('-v', '--version', 'display Hieroglyph version') do
           @execute = false

@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 require "nokogiri"
 require "savage"
 
@@ -8,8 +6,8 @@ module Hieroglyph
   class Glyph
 
     def initialize(file, source)
-      @letter = file.gsub(source, "").gsub("/", "").each_char.first
-      Hieroglyph.log "  #{@letter} -> reading..."
+      @name = file.gsub(source, "").gsub("/", "").each_char.first
+      Hieroglyph.log "  #{@name} -> reading..."
       @contents = Nokogiri::XML(File.new(file))
       @polygon = @contents.root.at_css("polygon")
       @path = @polygon.nil? ? convert_path: convert_polygon
@@ -82,7 +80,7 @@ module Hieroglyph
     end
 
     def to_node
-      return "<glyph unicode=\"#{@letter}\" d=\"#{@path.to_command}\" />\n"
+      return "<glyph unicode=\"#{@name}\" d=\"#{@path.to_command}\" />\n"
     end
 
   end

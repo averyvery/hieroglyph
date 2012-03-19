@@ -2,4 +2,4 @@
 
 require "#{File.dirname(__FILE__)}/../lib/hieroglyph/command_line.rb"
 
-Jammit::CommandLine.newieroglyph::Interface.new(ARGV)
+Hieroglyph::CommandLine.new

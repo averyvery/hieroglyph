@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 module Hieroglyph
 
   class Font
@@ -14,14 +12,14 @@ module Hieroglyph
     end
 
     def add_header
-      header_path = File.join(File.dirname(__FILE__), "hieroglyph/assets/header")
+      header_path = File.join(File.dirname(__FILE__), "assets/header")
       header = File.open(header_path).read
       header.gsub!("{{NAME}}", @options[:name])
       add header
     end 
 
     def add_footer
-      footer_path = File.join(File.dirname(__FILE__), "hieroglyph/assets/footer")
+      footer_path = File.join(File.dirname(__FILE__), "assets/footer")
       footer = File.open(footer_path).read
       add footer
     end

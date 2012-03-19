@@ -1,13 +1,18 @@
-#!/usr/bin/env ruby
+require 'hieroglyph/glyph'
+require 'hieroglyph/font'
 
 module Hieroglyph
 
-  VERSION = "0.0.1"
+  VERSION = "0.1"
 
-  def Hieroglyph.log(*args)
+  def self.log(*args)
     args.each do |arg|
       puts arg
     end
+  end
+
+  def self.make(options)
+    Font.new(options)
   end
 
 end

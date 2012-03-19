@@ -10,21 +10,17 @@ Convert a folder full of icons into an icon font, ready for use on the web. Outp
 
 Create a directory full of SVG glyphs, and run:
 
-	hieroglyph make FontName path/to/glyphs destination/path
+	hieroglyph -n FontName -g path/to/glyphs -o destination/path
 
-All arguments are optional. If you leave off any of them, the defaults used will be:
+Arguments:
 
-- 'MyFont' for fontname
-- 'glyphs' for glyph path
-- The current directory for destination path
+	-n, --name NAME                  name of the font you want generated
+	-o, --output OUTPUT_FOLDER       where to output the generated font
+	-g, --glyphs GLYPH_FOLDER        where to find glyphs to generate from
+	-e, --example                    output set of example glyphs
+	-v, --version                    display Hieroglyph version
 
-Usually, I just run <code>hieroglyph FontName</code> from the directory my glyphs are in.
-
-To generate an example directory of glyphs into the current directory, just run:
-
-	hieroglyph example
-
-This should help you get started.
+Using the -e or -v arguments will NOT output a font.
 
 ## Making Glyphs
 
@@ -37,7 +33,7 @@ This should help you get started.
 
 ## Todo
 
-- Use nokogiri for parsing XML instead of...you know....regex.
+- Clean up Glyph class. It's crazy!
 - Generate a character sheet
 - Parse from EPS _or_ SVG. Not sure if this is doable with available technology.
 - Use private use unicode symbols for accessibility reasons:
