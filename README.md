@@ -34,7 +34,11 @@ Using the -e or -v arguments will NOT output a font.
 	- Tip: Use Illustrator's Transform palette to set the icon to 737pt high, with a y of 656 and x of 500
 - Save it as a-[iconname].svg in your glyphs folder, 'a' being the letter you want to map the glyph to. [iconname] can be anything, it's just to help you remember which icon you used.
 
-# Thanks
+## Known Issues
+
+- If ImageMagick is installed without Ghostscript fonts, the character sheet process will throw an error. The font is still generated correctly, though.
+
+## Thanks
 
 - [Chris Coyier](http://chriscoyier.net/), for brining attention to the [icon fonts.](http://css-tricks.com/using-fonts-for-icons/)
 - [Stephen Wyatt Bush](http://stephenwyattbush.com/), for his in-depth [tutorial.](http://blog.stephenwyattbush.com/2012/02/01/making-an-icon-font)
