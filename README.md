@@ -50,6 +50,7 @@ Using the -e or -v arguments will NOT output a font.
 
 ## Todo
 
+- Tests
 - Clean up Glyph class. It's crazy!
 - Parse from EPS _or_ SVG. Not sure if this is doable with available open-source technology.
 - Use private use unicode symbols, for accessibility reasons:
