@@ -40,7 +40,7 @@ Using the -e or -v arguments will NOT output a font.
 
 ## Thanks
 
-- [Chris Coyier](http://chriscoyier.net/), for bringing attention to the [icon fonts technique.](http://css-tricks.com/using-fonts-for-icons/)
+- [Chris Coyier](http://chriscoyier.net/), for bringing attention to the [icon font technique.](http://css-tricks.com/using-fonts-for-icons/)
 - [Stephen Wyatt Bush](http://stephenwyattbush.com/), for his in-depth [tutorial.](http://blog.stephenwyattbush.com/2012/02/01/making-an-icon-font)
 - [Jeremy Holland](http://www.jeremypholland.com/), for the [Savage SVG parsing gem.](https://github.com/awebneck/savage)
 - [Inkscape contributors](https://launchpad.net/inkscape/+topcontributors), who provided the original SVG font tool I used a lot on this project.
