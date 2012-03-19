@@ -1,10 +1,9 @@
 module Hieroglyph
 
-  class CharacterSheet
+  if rmagick_installed?
+    class CharacterSheet
 
-    def initialize(options)
-      if Hieroglyph.rmagick_installed?
-        require 'rmagick'
+      def initialize(options)
         @options = options
         @output_path = File.join(@options[:output_folder], @options[:name]) + "_characters.png"
         if File.exist? @output_path
@@ -12,21 +11,15 @@ module Hieroglyph
           File.delete @output_path
         end
         @characters = Magick::ImageList.new
-      else
-        Hieroglyph.log "  ImageMagick not installed, skipping character sheet"
       end
-    end
 
-    def add(file, name)
-      if Hieroglyph.rmagick_installed?
+      def add(file, name)
         character = Magick::Image::read(file).first
         character['Label'] = name
         @characters.push character
-      end
-    end 
+      end 
 
-    def save
-      if Hieroglyph.rmagick_installed?
+      def save
         name = @options[:name]
         img = @characters.montage do
           self.background_color = "#ffffff"
@@ -41,6 +34,16 @@ module Hieroglyph
       end
     end
 
+  else
+    # No-op
+    class CharacterSheet
+      def initialize(*)
+      end
+      def add(file, name)
+      end
+      def save
+      end
+    end
   end
 
 end

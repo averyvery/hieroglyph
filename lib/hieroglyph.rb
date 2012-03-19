@@ -1,6 +1,9 @@
-require 'hieroglyph/glyph'
-require 'hieroglyph/font'
-require 'hieroglyph/character_sheet'
+RMAGICK_INSTALLED = begin
+  require 'rmagick'
+  true
+rescue Gem::LoadError
+  false
+end
 
 module Hieroglyph
 
@@ -17,9 +20,10 @@ module Hieroglyph
   end
 
   def self.rmagick_installed?
-    Gem::Specification.find_by_name("rmagick")
-  rescue Gem::LoadError
-    false
+    ::RMAGICK_INSTALLED
   end
-
 end
+
+require 'hieroglyph/glyph'
+require 'hieroglyph/font'
+require 'hieroglyph/character_sheet'

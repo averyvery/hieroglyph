@@ -9,11 +9,17 @@ Gem::Specification.new do |gem|
   gem.homepage      = "http://github.com/averyvery/hieroglyph"
 
   gem.files         = `git ls-files`.split($\)
+  gem.test_files    = `git ls-files -- {test,spec,features}/*`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "hieroglyph"
   gem.require_paths = ["lib"]
   gem.version       = Hieroglyph::VERSION
+
 	gem.add_dependency("nokogiri", ">= 0")
   gem.add_dependency("savage", ">= 0")
+
+  gem.add_development_dependency "rspec"
+  gem.add_development_dependency "mocha"
+  gem.add_development_dependency "bourne"
+  gem.add_development_dependency "rmagick"
 end
