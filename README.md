@@ -1,8 +1,11 @@
 # Hieroglyph
 
-Convert a folder full of icons into an SVG icon font, ready for use on the web. 
-To produce the remaining web filetypes (eot, ttf, woff) run the gem through [Fontsquirrel generator](http://www.fontsquirrel.com/fontface/generator).
-If rmagick is installed (optional), hieroglyph will also create a neat little character sheet.
+Icon fonts are a great way to put sharp, highly-malleable icons onto your website using @font-face. [Chris Coyier thinks they're a good idea](http://css-tricks.com/using-fonts-for-icons/{, and you should too.
+
+Hieroglyph lets you turn a directory of SVG icons into an SVG font, all simple-like.
+To produce the remaining web filetypes (eot, ttf, woff) run the font file through [Fontsquirrel's generator](http://www.fontsquirrel.com/fontface/generator).
+
+If rmagick is installed (optional), hieroglyph will also draw a character sheet PNG for you.
 
 ## Installation
 
