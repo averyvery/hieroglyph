@@ -16,4 +16,10 @@ module Hieroglyph
     Font.new(options)
   end
 
+  def self.rmagick_installed?
+    Gem::Specification.find_by_name("rmagick")
+  rescue Gem::LoadError
+    false
+  end
+
 end
