@@ -7,7 +7,7 @@ end
 
 module Hieroglyph
 
-  VERSION = "0.1"
+  VERSION = "0.1.1"
 
   def self.log(*args)
     args.each do |arg|
