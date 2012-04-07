@@ -58,7 +58,7 @@ module Hieroglyph
     end
 
     def convert_path
-      @path = @contents.root.at_css("path")["d"] 
+      @path = @contents.root.at_css("path")["d"]
       @path = Savage::Parser.parse @path
     end
 

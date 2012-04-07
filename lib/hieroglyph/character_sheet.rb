@@ -1,7 +1,17 @@
 module Hieroglyph
 
-  if rmagick_installed?
+  if imagemagick_installed?
     class CharacterSheet
+
+      @@montage_args = {
+        "background" => "#ffffff",
+        "border" => 20,
+        "bordercolor" => "#ffffff",
+        "fill" => "#000000",
+        "geometry" => "150x150+10+5",
+        "label" => "%t",
+        "mattecolor" => "#ffffff"
+      }
 
       def initialize(options)
         @options = options
@@ -10,27 +20,24 @@ module Hieroglyph
           Hieroglyph.log "  #{@output_path} exists, deleting"
           File.delete @output_path
         end
-        @characters = Magick::ImageList.new
+        @files = []
       end
 
       def add(file, name)
-        character = Magick::Image::read(file).first
-        character['Label'] = name
-        @characters.push character
-      end 
+        @files.push file
+      end
 
       def save
-        name = @options[:name]
-        img = @characters.montage do
-          self.background_color = "#ffffff"
-          self.border_width = 20
-          self.border_color = "#ffffff"
-          self.fill = "#000000"
-          self.geometry = "150x150+10+5"
-          self.matte_color = "#ffffff"
-          self.title = name
+        cmd = 'montage'
+        @@montage_args["title"] = @options[:name]
+        @@montage_args.each do |arg, value|
+          cmd << " -#{arg} #{value}"
         end
-        img.write(@output_path)
+        @files.each do |file|
+          cmd << " #{file}"
+        end
+        cmd << " #{@output_path}"
+        exec cmd
       end
     end
 
@@ -38,6 +45,7 @@ module Hieroglyph
     # No-op
     class CharacterSheet
       def initialize(*)
+        puts "  ImageMagick not detected - skipping character sheet"
       end
       def add(file, name)
       end

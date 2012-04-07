@@ -1,13 +1,8 @@
-RMAGICK_INSTALLED = begin
-  require 'rmagick'
-  true
-rescue Gem::LoadError
-  false
-end
+IMAGEMAGICK_INSTALLED = !!`convert --version`.match(/ImageMagick/)
 
 module Hieroglyph
 
-  VERSION = "0.1.1"
+  VERSION = "0.1.2"
 
   def self.log(*args)
     args.each do |arg|
@@ -19,8 +14,8 @@ module Hieroglyph
     Font.new(options)
   end
 
-  def self.rmagick_installed?
-    ::RMAGICK_INSTALLED
+  def self.imagemagick_installed?
+    ::IMAGEMAGICK_INSTALLED
   end
 end
 
