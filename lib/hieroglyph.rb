@@ -2,8 +2,6 @@ IMAGEMAGICK_INSTALLED = !!`convert --version`.match(/ImageMagick/)
 
 module Hieroglyph
 
-  VERSION = "0.1.2"
-
   def self.log(*args)
     args.each do |arg|
       puts arg
