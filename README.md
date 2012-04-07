@@ -5,7 +5,7 @@ Icon fonts are a great way to put sharp, highly-malleable icons onto your websit
 Hieroglyph lets you turn a directory of SVG icons into an SVG font, all simple-like.
 To produce the remaining web filetypes (eot, ttf, woff) run the font file through [Fontsquirrel's generator](http://www.fontsquirrel.com/fontface/generator).
 
-If rmagick is installed (optional), hieroglyph will also draw a character sheet PNG for you.
+If ImageMagick is installed (optional), hieroglyph will also draw a character sheet PNG for you.
 
 ## Installation
 

@@ -37,7 +37,7 @@ module Hieroglyph
           cmd << " #{file}"
         end
         cmd << " #{@output_path}"
-        exec cmd
+        `#{cmd}`
       end
     end
 
@@ -45,7 +45,7 @@ module Hieroglyph
     # No-op
     class CharacterSheet
       def initialize(*)
-        puts "  ImageMagick not detected - skipping character sheet"
+        Hieroglyph.log "  ImageMagick not detected - skipping character sheet"
       end
       def add(file, name)
       end
