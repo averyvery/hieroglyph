@@ -1,4 +1,4 @@
-# Hieroglyph
+# Hieroglyph 0.1.2
 
 Icon fonts are a great way to put sharp, highly-malleable icons onto your website using @font-face. [Chris Coyier thinks they're a good idea](http://css-tricks.com/using-fonts-for-icons/), and you should too.
 
@@ -9,6 +9,15 @@ If ImageMagick is installed (optional), hieroglyph will also draw a character sh
 
 ## Installation
 
+To install the current version from RubyGems:
+
+	gem install hieroglyph
+
+To install the most recent version, from GitHub:
+
+	git clone https://github.com/averyvery/hieroglyph.git && \
+	cd hieroglyph && \
+	gem build hieroglyph.gemspec && \
 	gem install hieroglyph
 
 ## Usage
@@ -33,8 +42,7 @@ Using the -e or -v arguments will NOT output a font.
 - In a vector editor (Illustrator, Inkscape), create a 1000pt x 1000pt canvas
 - Draw your icon as a single compound path
 - Center it horizontally
-- Vertically, fit it between ~y288 and ~y1025
-	- Tip: Use Illustrator's Transform palette to set the icon to 737pt high, with a y of 656 and x of 500
+- Vertically, fit it between ~y250 and ~y1000 (the bottom of the canvas)
 - Save it as a-[iconname].svg in your glyphs folder, 'a' being the letter you want to map the glyph to. [iconname] can be anything, it's just to help you remember which icon you used.
 
 ## Testing

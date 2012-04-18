@@ -1,15 +1,15 @@
-IMAGEMAGICK_INSTALLED = !!`convert --veeeersion`.match(/ImageMagick/)
+IMAGEMAGICK_INSTALLED = !!`command convert &>/dev/null && echo "t" || echo "f"`.match(/t/)
 
 module Hieroglyph
 
-  def self.log(str, title=false)
-    if(title)
-      puts ""
-      puts "=== #{str} ==="
-      puts ""
-    else
-      puts "  #{str}"
-    end
+  def self.log(str="", pad=2)
+    puts str.rjust(str.length + pad)
+  end
+
+  def self.header(str)
+    puts ""
+    puts "=== #{str} ==="
+    puts ""
   end
 
   def self.make(options)
@@ -22,7 +22,8 @@ module Hieroglyph
 
   def self.delete(file)
     if File.exist? file
-      Hieroglyph.log "#{file} exists, deleting"
+      trimmed_file = file.gsub(/\.\//, '')
+      Hieroglyph.log "#{trimmed_file} exists, deleting"
       File.delete file
     end
   end

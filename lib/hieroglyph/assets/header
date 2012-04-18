@@ -5,5 +5,3 @@
 <font id="{{NAME}}" horiz-adv-x="1024" >
 <font-face units-per-em="1024" ascent="819" descent="-205" />
 <missing-glyph horiz-adv-x="500" />
-<glyph d="M0 0h1000v1024h-1000v-1024z" />
-<glyph d="M0 0h1000v1024h-1000v-1024z" />

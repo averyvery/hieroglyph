@@ -22,13 +22,13 @@ module Hieroglyph
     def initialize(file, source)
       @name = file.gsub(source, "").gsub("/", "").each_char.first
       @contents = Nokogiri::XML(File.new(file))
-      @path = Savage::Path.new
-      Hieroglyph.log "  #{@name} -> reading..."
-      parse_shapes
-      flip_paths
+      @path =
+      Hieroglyph.log "#{@name} -> reading...", 4
+      @path = parse_shapes
     end
 
     def parse_shapes
+      path = Savage::Path.new
       count = 0
       SHAPE_HANDLERS.each do |type, method|
         contents = @contents.root.at_css(type)
@@ -37,14 +37,15 @@ module Hieroglyph
           if count > 1
             report_too_many
           else
-            self.method(method).call(type, contents)
+            path = self.method(method).call(type, contents)
           end
         end
       end
+      path
     end
 
     def convert_polygon(type, content)
-      Hieroglyph.log "       polygon found - converting"
+      Hieroglyph.log "polygon found - converting", 9
       points = content["points"].split(" ")
       return_path = @path
       Savage::Path.new do |path|
@@ -55,30 +56,30 @@ module Hieroglyph
           path.line_to(position[0], position[1])
         end
         path.close_path
-        return_path = path
+        flip(path)
       end
-      return_path
     end
 
     def convert_path(type, content)
-      Hieroglyph.log "       path found"
-      Savage::Parser.parse content["d"]
+      Hieroglyph.log "path found", 9
+      path = Savage::Parser.parse content["d"]
+      flip(path)
     end
 
     def report_invalid(type, content)
-      Hieroglyph.log "       #{type} found - this shape is invalid!"
-      Hieroglyph.log "       'make compound path' in your vector tool to fix"
+      Hieroglyph.log "#{type} found - this shape is invalid!", 9
+      Hieroglyph.log "'make compound path' in your vector tool to fix", 9
     end
 
     def report_too_many
       unless @too_many
-        Hieroglyph.log "       too many shapes! your icon might look weird as a result"
+        Hieroglyph.log "too many shapes! your icon might look weird as a result", 9
         @too_many = true
       end
     end
 
-    def flip_paths
-      @path.subpaths.each do |subpath|
+    def flip(path)
+      path.subpaths.each do |subpath|
         subpath.directions.each do |direction|
           case direction
           when Savage::Directions::MoveTo
@@ -116,15 +117,17 @@ module Hieroglyph
           end
         end
       end
+      path
     end
 
     def flip_y(value)
       value = value.to_f
       value = (value - 500) * -1 + 500
+      value = value - 25
     end
 
     def to_node
-      return "<glyph unicode=\"#{@name}\" d=\"#{@path.to_command}\" />\n"
+      @path ? "<glyph unicode=\"#{@name}\" d=\"#{@path.to_command}\" />\n" : ''
     end
 
   end

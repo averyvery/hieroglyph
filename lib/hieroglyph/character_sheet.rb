@@ -17,6 +17,7 @@ module Hieroglyph
       @output_path = File.join(@options[:output_folder], @options[:name]) + "_characters.png"
       Hieroglyph.delete @output_path
       @files = []
+      Hieroglyph.log "ImageMagick detected - generating character sheet"
     end
 
     def add(file)
