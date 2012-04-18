@@ -59,10 +59,7 @@ To create a full font using FontSquirrel, you'll need to use Expert mode and sub
 
 <img src="https://raw.github.com/averyvery/hieroglyph/master/lib/hieroglyph/assets/fontsquirrel-subsetting.jpg" />
 
-Read more here:
-
-- <a href="http://twitter.com/#!/danscotton/statuses/180321697449263106">Dan Scotton's tweet</a>
-- <a href="http://en.wikipedia.org/wiki/Private_Use_(Unicode)">Wikipedia</a>
+Read more: <a href="http://twitter.com/#!/danscotton/statuses/180321697449263106">Dan Scotton's tweet</a>, <a href="http://en.wikipedia.org/wiki/Private_Use_(Unicode)">Wikipedia</a>
 
 ## Known Issues
 
