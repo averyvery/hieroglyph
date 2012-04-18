@@ -20,6 +20,10 @@ To install the most recent version, from GitHub:
 	gem build hieroglyph.gemspec && \
 	gem install hieroglyph
 
+To do a quick test run, just generate some example glyphs and create a MyFont font like so:
+
+	hieroglyph -e && hieroglyph
+
 ## Usage
 
 Create a directory full of SVG glyphs, and run:
@@ -31,7 +35,7 @@ Arguments:
 	-n, --name NAME               name of the font you want generated (defaults to MyFont)
 	-o, --output OUTPUT_FOLDER    where to output the generated font (defaults to current folder)
 	-g, --glyphs GLYPH_FOLDER     where to find glyphs to generate from (defaults to "glyphs")
-	-e, --example                 output set of example glyphs
+	-e, --example                 creats set of example glyphs, including two "bad" SVGs for reference
 	-v, --version                 display Hieroglyph version
 	-h, --help                    display this info
 
