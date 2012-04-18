@@ -48,7 +48,7 @@ Misc (using these arguments will not produce a font:
 - Draw/merge your icon into a single compound path (this is important!)
 - Center it horizontally
 - Vertically, fit it between cap height of 250pt the baseline of 1000pt
-- Save it as a-icon_of_stuff.svg in your glyphs folder, 'a' being the letter you want to map the glyph to. You can also use a filename like &<wbr>#xf8ff;-icon_of_stuff.svg to map your icons to a unicode character.
+- Save as **a-icon_of_stuff.svg** in your glyphs folder, 'a' being the letter you want to map to. You can also use something like **&<wbr>#xf8ff;-icon_of_stuff.svg** to map to a unicode character.
 
 ## Private Unicode Symbols
 
