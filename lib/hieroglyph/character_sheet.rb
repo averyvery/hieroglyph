@@ -4,10 +4,8 @@ module Hieroglyph
 
     @@montage_args = {
       "background" => "#ffffff",
-      "border" => 20,
-      "bordercolor" => "#ffffff",
       "fill" => "#000000",
-      "geometry" => "150x150+10+5",
+      "geometry" => "150x150+25+25",
       "label" => "%t",
       "mattecolor" => "#ffffff"
     }
