@@ -59,7 +59,7 @@ To create a full font using FontSquirrel, you'll need to use Expert mode and sub
 
 <img src="https://raw.github.com/averyvery/hieroglyph/master/lib/hieroglyph/assets/fontsquirrel-subsetting.jpg" />
 
-Read more: <a href="http://twitter.com/#!/danscotton/statuses/180321697449263106">Dan Scotton's tweet</a>, <a href="http://en.wikipedia.org/wiki/Private_Use_(Unicode)">Wikipedia</a>
+Read more: [Dan Scotton's tweet](http://twitter.com/#!/danscotton/statuses/180321697449263106), <a href="http://en.wikipedia.org/wiki/Private_Use_(Unicode)">Wikipedia</a>
 
 ## Known Issues
 
@@ -67,7 +67,7 @@ Read more: <a href="http://twitter.com/#!/danscotton/statuses/180321697449263106
 
 ## Contribute
 
-If you want to help out, great! Since Ruby gem dev is way out of my wheelhouse, I'd appreciate any help I can get - but I would <em>most</em> appreciate it in the form of suggestions, education, and well-justified changes. If you have a specific bug or feature you'd like to pull request for, please (let me know about it)[https://github.com/averyvery/hieroglyph/issues/new] so we're on the same page.
+If you want to help out, great! Since Ruby gem dev is way out of my wheelhouse, I'd appreciate any help I can get - but I would <em>most</em> appreciate it in the form of suggestions, education, and well-justified changes. If you have a specific bug or feature you'd like to pull request for, please [let me know about it](https://github.com/averyvery/hieroglyph/issues/new) so we're on the same page.
 
 ## Thanks
 
