@@ -68,7 +68,7 @@ Read more: [Dan Scotton's tweet](http://twitter.com/#!/danscotton/statuses/18032
 
 ## Contribute
 
-If you want to help out, great! As an inexperienced dev, I'd appreciate any help I can get - but I would <em>most</em> appreciate it in the form of suggestions, education, and well-justified changes. If you have a specific bug or feature you'd like to pull request for, please [let me know about it](https://github.com/averyvery/hieroglyph/issues/new) so we're on the same page.
+If you want to help out, great! As an inexperienced dev, I'd appreciate any help I can get &mdash; but I would <em>most</em> appreciate it in the form of suggestions, education, and well-justified changes. If you have a specific bug or feature you'd like to pull request for, please [let me know about it](https://github.com/averyvery/hieroglyph/issues/new) so we're on the same page.
 
 ## Thanks
 
