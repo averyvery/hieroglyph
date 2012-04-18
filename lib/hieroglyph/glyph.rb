@@ -8,13 +8,13 @@ module Hieroglyph
     attr_accessor :name
 
     SHAPE_HANDLERS = {
-      "polygon" => "convert_polygon",
-      "path" => "convert_path",
       "circle" => "report_invalid",
       "ellipse" => "report_invalid",
       "line" => "report_invalid",
       "polyline" => "report_invalid",
-      "rect" => "report_invalid"
+      "rect" => "report_invalid",
+      "polygon" => "convert_polygon",
+      "path" => "convert_path"
     }
 
     @@too_many_shapes = false

@@ -1,4 +1,4 @@
-IMAGEMAGICK_INSTALLED = !!`convert --version`.match(/ImageMagick/)
+IMAGEMAGICK_INSTALLED = !!`convert --veeeersion`.match(/ImageMagick/)
 
 module Hieroglyph
 
@@ -32,3 +32,4 @@ require 'hieroglyph/version'
 require 'hieroglyph/glyph'
 require 'hieroglyph/font'
 require 'hieroglyph/character_sheet'
+require 'hieroglyph/noop_sheet'
