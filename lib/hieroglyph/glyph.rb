@@ -17,10 +17,12 @@ module Hieroglyph
       "path" => "convert_path"
     }
 
+    NAME_REGEX = /^.*?(?=(-|\.))/
+
     @@too_many_shapes = false
 
     def initialize(file, source)
-      @name = file.gsub(source, "").gsub("/", "").each_char.first
+      @name = file.gsub(source, "").gsub("/", "").match(NAME_REGEX)
       @contents = Nokogiri::XML(File.new(file))
       @path =
       Hieroglyph.log "#{@name} -> reading...", 4
