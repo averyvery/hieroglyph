@@ -23,6 +23,7 @@ module Hieroglyph
 
     def initialize(file, source)
       @name = file.gsub(source, "").gsub("/", "").match(NAME_REGEX)
+      puts @name
       @contents = Nokogiri::XML(File.new(file))
       @path =
       Hieroglyph.log "#{@name} -> reading...", 4
