@@ -49,9 +49,20 @@ Using the -e or -v arguments will NOT output a font.
 - Vertically, fit it between ~y250 and ~y1000 (the bottom of the canvas)
 - Save it as a-[iconname].svg in your glyphs folder, 'a' being the letter you want to map the glyph to. [iconname] can be anything, it's just to help you remember which icon you used.
 
-## Testing
+## Private Unicode Symbols
 
-	rake test
+Mapping your icons to private-use unicode characters is an extra measure to prevent screenreaders from seeing them. You can see an example of this by running <code>hieroglyph -e</code>, it just involves naming your glyph with a unicode characted before the dash.
+
+The basic range of valid names runs from &<wbr>#xe000; to &<wbr>#xf8ff;.
+
+To create a full font using FontSquirrel, you'll need to use Expert mode and subset your font with the unicode characters.
+
+<img src="https://raw.github.com/averyvery/hieroglyph/master/lib/hieroglyph/assets/fontsquirrel-subsetting.jpg" />
+
+Read more here:
+
+- http://twitter.com/#!/danscotton/statuses/180321697449263106
+- http://en.wikipedia.org/wiki/Private_Use_(Unicode)
 
 ## Known Issues
 
@@ -63,12 +74,3 @@ Using the -e or -v arguments will NOT output a font.
 - [Stephen Wyatt Bush](http://stephenwyattbush.com/), for his in-depth [tutorial.](http://blog.stephenwyattbush.com/2012/02/01/making-an-icon-font)
 - [Jeremy Holland](http://www.jeremypholland.com/), for the [Savage SVG parsing gem.](https://github.com/awebneck/savage)
 - [Inkscape contributors](https://launchpad.net/inkscape/+topcontributors), who provided the original SVG font tool I used a lot on this project.
-
-## Todo
-
-- Tests
-- Clean up Glyph class. It's crazy!
-- Parse from EPS _or_ SVG. Not sure if this is doable with available open-source technology.
-- Use private use unicode symbols, for accessibility reasons:
-	- http://twitter.com/#!/danscotton/statuses/180321697449263106
-	- http://en.wikipedia.org/wiki/Private_Use_(Unicode)
