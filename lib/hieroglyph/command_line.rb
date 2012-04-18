@@ -19,8 +19,10 @@ Options:
       parse_options
       if @execute
         Hieroglyph.make @options
-        Hieroglyph.log "", "  Saved to #{@options[:output_folder]}", "", "=== #{@options[:name]} generated ===", ""
-        Hieroglyph.log "To create a full set of webfonts, upload to:", "http://www.fontsquirrel.com/fontface/generator", ""
+        Hieroglyph.log "#{@options[:name]} generated", true
+        Hieroglyph.log "Saved to #{@options[:output_folder]}"
+        Hieroglyph.log "To create a full set of webfonts, upload to:"
+        Hieroglyph.log "http://www.fontsquirrel.com/fontface/generator"
       end
     end
 

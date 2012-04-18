@@ -16,14 +16,11 @@ module Hieroglyph
       def initialize(options)
         @options = options
         @output_path = File.join(@options[:output_folder], @options[:name]) + "_characters.png"
-        if File.exist? @output_path
-          Hieroglyph.log "  #{@output_path} exists, deleting"
-          File.delete @output_path
-        end
+        Hieroglyph.delete @output_path
         @files = []
       end
 
-      def add(file, name)
+      def add(file)
         @files.push file
       end
 
@@ -45,9 +42,9 @@ module Hieroglyph
     # No-op
     class CharacterSheet
       def initialize(*)
-        Hieroglyph.log "  ImageMagick not detected - skipping character sheet"
+        Hieroglyph.log "ImageMagick not detected - skipping character sheet"
       end
-      def add(file, name)
+      def add(file)
       end
       def save
       end

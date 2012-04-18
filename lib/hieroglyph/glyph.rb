@@ -9,7 +9,7 @@ module Hieroglyph
 
     def initialize(file, source)
       @name = file.gsub(source, "").gsub("/", "").each_char.first
-      Hieroglyph.log "    #{@name} -> reading..."
+      Hieroglyph.log "  #{@name} -> reading..."
       @contents = Nokogiri::XML(File.new(file))
       @polygon = @contents.root.at_css("polygon")
       @path = @polygon.nil? ? convert_path: convert_polygon
@@ -63,7 +63,7 @@ module Hieroglyph
     end
 
     def convert_polygon
-      Hieroglyph.log "      -> converting polygon to path"
+      Hieroglyph.log "    -> converting polygon to path"
       points = @polygon["points"].split(" ")
       Savage::Path.new do |path|
         start_position = points.shift.split(",")

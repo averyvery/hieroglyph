@@ -17,11 +17,8 @@ module Hieroglyph
     end
 
     def setup
-      Hieroglyph.log "", "=== Generating #{@options[:name]} ===", ""
-      if File.exist? @output_path
-        Hieroglyph.log "  #{@output_path} exists, deleting"
-        File.delete @output_path
-      end
+      Hieroglyph.log "Generating #{@options[:name]}", true
+      Hieroglyph.delete @output_path
       @character_sheet = CharacterSheet.new(@options)
       include "header"
     end
@@ -45,10 +42,10 @@ module Hieroglyph
     end
 
     def add_glyphs
-      Hieroglyph.log "  Reading from #{@options[:glyph_folder]}..."
+      Hieroglyph.log "Reading from #{@options[:glyph_folder]}..."
       Dir.glob(File.join(@options[:glyph_folder], "*.svg")).each do |file|
         glyph = Glyph.new(file, @options[:glyph_folder])
-        @character_sheet.add(file, glyph.name)
+        @character_sheet.add file
         add glyph.to_node
       end
     end
