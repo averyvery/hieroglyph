@@ -15,7 +15,7 @@ To install the current version from RubyGems:
 
 To install the most recent version, from GitHub:
 
-	git clone https://github.com/averyvery/hieroglyph.git && \
+	git clone git@github.com:averyvery/hieroglyph.git && \
 	cd hieroglyph && \
 	gem build hieroglyph.gemspec && \
 	gem install hieroglyph
