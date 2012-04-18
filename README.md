@@ -45,10 +45,10 @@ Misc (using these arguments will not produce a font:
 ## Making Glyphs
 
 - In a vector editor (Illustrator, Inkscape), create a 1000pt x 1000pt canvas
-- Draw your icon as a single compound path
+- Draw/merge your icon into a single compound path (this is important!)
 - Center it horizontally
-- Vertically, fit it between ~y250 and ~y1000 (the bottom of the canvas)
-- Save it as a-[iconname].svg in your glyphs folder, 'a' being the letter you want to map the glyph to. [iconname] can be anything, it's just to help you remember which icon you used.
+- Vertically, fit it between cap height of 250pt the baseline of 1000pt
+- Save it as a-icon_of_stuff.svg in your glyphs folder, 'a' being the letter you want to map the glyph to. You can also use a filename like &<wbr>#xf8ff;-icon_of_stuff.svg to map your icons to a unicode character.
 
 ## Private Unicode Symbols
 
