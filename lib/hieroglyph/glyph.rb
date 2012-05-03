@@ -19,7 +19,7 @@ module Hieroglyph
 
     NAME_REGEX = /^..*?(?=(-|\.))/
 
-    UNICODE_REGEX = /(?<=^&#x).*(?=;)/
+    UNICODE_REGEX = /(?<=^&#(x|X)).*(?=;)/
 
     @@too_many_shapes = false
 
