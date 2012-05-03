@@ -26,7 +26,7 @@ Options:
         Hieroglyph.log
         Hieroglyph.log "If you're having trouble uploading SVGs, try converting to a TTF first using http://www.freefontconverter.com"
         Hieroglyph.log
-        Hieroglyph.log "Font characters: #{font.characters.join(',')}"
+        Hieroglyph.log "Single characters: #{font.characters.join(',')}"
         Hieroglyph.log "Unicode characters: #{font.unicode_values.join(',')}"
         Hieroglyph.log
       end
