@@ -19,14 +19,27 @@ module Hieroglyph
 
     NAME_REGEX = /^..*?(?=(-|\.))/
 
+    UNICODE_REGEX = /(?<=^&#x).*(?=;)/
+
     @@too_many_shapes = false
 
-    def initialize(file, source)
-      @name = file.gsub(source, "").gsub("/", "").match(NAME_REGEX)
+    def initialize(file, source, font)
+      @font = font
+      set_name(file, source)
       @contents = Nokogiri::XML(File.new(file))
       @path =
       Hieroglyph.log "#{@name} -> reading...", 4
       @path = parse_shapes
+    end
+
+    def set_name(file, source)
+      @name = file.gsub(source, "").gsub("/", "").match(NAME_REGEX).to_s
+      unicode = @name.match(UNICODE_REGEX)
+      if unicode
+        @font.unicode_values.push(unicode.to_s.upcase)
+      else
+        @font.characters.push(@name)
+      end
     end
 
     def parse_shapes
