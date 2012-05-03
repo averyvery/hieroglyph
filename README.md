@@ -42,6 +42,10 @@ Misc (using these arguments will not produce a font:
 	-v, --version                 display Hieroglyph version
 	-h, --help                    display all commands
 
+## Converting
+
+Because hieroglyph only generates SVGs, you'll need to convert the resulting file to other formats yourself. [The Font Squirrel Generator](http://www.fontsquirrel.com/fontface/generator) is usually the best tool for this, but as of May 2012 it was having trouble uploading/reading SVGs. If you run into this problem, try converting your font to a TTF first with [Free Font Converter](http://www.freefontconverter.com).
+
 ## Making Glyphs
 
 - In a vector editor (Illustrator, Inkscape), create a 1000pt x 1000pt canvas

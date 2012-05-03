@@ -24,6 +24,7 @@ Options:
         Hieroglyph.log "To create a full set of webfonts, upload to:"
         Hieroglyph.log "http://www.fontsquirrel.com/fontface/generator"
         Hieroglyph.log
+        Hieroglyph.log "If you're having trouble uploading SVGs, try converting to a TTF first using http://www.freefontconverter.com"
       end
     end
 
