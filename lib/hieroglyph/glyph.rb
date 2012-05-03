@@ -17,7 +17,7 @@ module Hieroglyph
       "path" => "convert_path"
     }
 
-    NAME_REGEX = /^.*?(?=(-|\.))/
+    NAME_REGEX = /^..*?(?=(-|\.))/
 
     @@too_many_shapes = false
 
