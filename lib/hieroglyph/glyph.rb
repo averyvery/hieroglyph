@@ -5,16 +5,16 @@ module Hieroglyph
 
   class Glyph
 
-    attr_accessor :name
+    attr_accessor :name, :path, :contents
 
     SHAPE_HANDLERS = {
-      "circle" => "report_invalid",
-      "ellipse" => "report_invalid",
-      "line" => "report_invalid",
-      "polyline" => "report_invalid",
-      "rect" => "report_invalid",
-      "polygon" => "convert_polygon",
-      "path" => "convert_path"
+      'circle' => 'report_invalid',
+      'ellipse' => 'report_invalid',
+      'line' => 'report_invalid',
+      'polyline' => 'report_invalid',
+      'rect' => 'report_invalid',
+      'polygon' => 'convert_polygon',
+      'path' => 'convert_path'
     }
 
     NAME_REGEX = /^..*?(?=(-|\.))/
@@ -27,13 +27,12 @@ module Hieroglyph
       @font = font
       set_name(file, source)
       @contents = Nokogiri::XML(File.new(file))
-      @path =
       Hieroglyph.log "#{@name} -> reading...", 4
       @path = parse_shapes
     end
 
     def set_name(file, source)
-      @name = file.gsub(source, "").gsub("/", "").match(NAME_REGEX).to_s
+      @name = file.gsub(source, '').gsub('/', '').match(NAME_REGEX).to_s
       unicode = @name.match(UNICODE_REGEX)
       if unicode
         @font.unicode_values.push(unicode.to_s.upcase)
@@ -62,7 +61,6 @@ module Hieroglyph
     def convert_polygon(type, content)
       Hieroglyph.log "polygon found - converting", 9
       points = content["points"].split(" ")
-      return_path = @path
       Savage::Path.new do |path|
         start_position = points.shift.split(",")
         path.move_to(start_position[0], start_position[1])
@@ -76,8 +74,8 @@ module Hieroglyph
     end
 
     def convert_path(type, content)
-      Hieroglyph.log "path found", 9
-      path = Savage::Parser.parse content["d"]
+      Hieroglyph.log 'path found', 9
+      path = Savage::Parser.parse content['d']
       flip(path)
     end
 
@@ -88,7 +86,7 @@ module Hieroglyph
 
     def report_too_many
       unless @too_many
-        Hieroglyph.log "too many shapes! your icon might look weird as a result", 9
+        Hieroglyph.log 'too many shapes! your icon might look weird as a result', 9
         @too_many = true
       end
     end

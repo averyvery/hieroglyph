@@ -7,6 +7,8 @@ describe Hieroglyph::NoopSheet do
       module Hieroglyph
         def log(*)
         end
+        def self.header(*)
+        end
       end
       @character_sheet = Hieroglyph::NoopSheet.new({:output_folder => '/tmp', :name => 'sheet'})
     end

@@ -4,11 +4,20 @@ describe Hieroglyph::Font do
   context 'A Font' do
 
     before :each do
+
       module Hieroglyph
         def self.log(*)
         end
+        def self.header(*)
+        end
       end
-      @font = Hieroglyph::Font.new({:output_folder => '/tmp', :name => 'font', :glyph_folder => '/tmp'})
+
+      system('rm -rf /tmp/glyphs/')
+      system('mkdir /tmp/glyphs/')
+      path_to_test = File.expand_path('../../../support/test.svg', __FILE__)
+      system("cp #{path_to_test} /tmp/glyphs/a-test.svg")
+      @font = Hieroglyph::Font.new({:output_folder => '/tmp', :name => 'font', :glyph_folder => '/tmp/glyphs'})
+
     end
 
     it 'includes files from assets' do
@@ -56,13 +65,8 @@ describe Hieroglyph::Font do
     end
 
     it 'adds glyphs' do
-      @font.output_path = '/tmp/glyphs'
-      system("rm -rf #{@font.output_path}")
-      Dir::mkdir(@font.output_path)
-      system("touch rm -rf #{@font.output_path}/foo.svg")
       @font.character_sheet.should_receive(:add)
       @font.add_glyphs
-      system("rm -rf #{@font.output_path}")
     end
 
   end
