@@ -11,13 +11,8 @@ describe Hieroglyph::NoopSheet do
       @character_sheet = Hieroglyph::NoopSheet.new({:output_folder => '/tmp', :name => 'sheet'})
     end
 
-    it 'should execute add' do
-      @character_sheet.add
-    end
-
-    it 'should not save files' do
-      @character_sheet.save
-      File.exists?('/tmp/sheet_characters.png').should be_false
+    it 'does nothing' do
+      'hi'.should be_false
     end
 
   end
