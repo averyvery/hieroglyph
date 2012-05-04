@@ -1,4 +1,13 @@
-source 'https://rubygems.org'
+source :rubygems
 
-# Specify your gem's dependencies in svgfont.gemspec
 gemspec
+gem 'savage'
+gem 'nokogiri'
+
+group :test do
+  gem 'savage'
+  gem 'nokogiri'
+  gem 'rspec'
+  gem 'mocha'
+  gem 'bourne'
+end

@@ -1,9 +1,14 @@
-#!/usr/bin/env rake
-require "bundler/gem_tasks"
+desc 'Run Rspec'
+task :spec do
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new('spec')
+end
 
-task :test do
-	system("rspec spec/lib/hieroglyph/font_spec.rb")
-	system("rspec spec/lib/hieroglyph/glyph_spec.rb")
-	system("rspec spec/lib/hieroglyph/character_sheet_spec.rb")
-	system("rspec spec/lib/hieroglyph/noop_sheet_spec.rb")
+task :default => :spec
+
+desc 'Install the gem'
+task :install do
+  sh 'gem build *.gemspec'
+  sh 'gem install *.gem'
+  sh 'rm *.gem'
 end

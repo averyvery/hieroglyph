@@ -29,6 +29,7 @@ module Hieroglyph
   end
 end
 
+require 'hieroglyph/command_line'
 require 'hieroglyph/version'
 require 'hieroglyph/glyph'
 require 'hieroglyph/font'

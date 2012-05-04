@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Hieroglyph::Glyph do
-  context 'A Glyph' do
+describe Hieroglyph::CommandLine do
+  context 'A CommandLine' do
 
     before :each do
     end
