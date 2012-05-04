@@ -2,7 +2,7 @@ module Hieroglyph
 
   class Font
 
-    attr_accessor :characters, :unicode_values
+    attr_accessor :output_path, :options, :characters, :unicode_values, :contents, :character_sheet
 
     def initialize(options)
       @characters = []
@@ -21,11 +21,10 @@ module Hieroglyph
     end
 
     def setup
-
       Hieroglyph.header "Generating #{@options[:name]}"
       Hieroglyph.delete @output_path
       @character_sheet = Hieroglyph.imagemagick_installed? ? CharacterSheet.new(@options) : NoopSheet.new
-      include "header"
+      include 'header'
     end
 
     def set_name
@@ -48,7 +47,7 @@ module Hieroglyph
 
     def add_glyphs
       Hieroglyph.log
-      Dir.glob(File.join(@options[:glyph_folder], "*.svg")).each do |file|
+      Dir.glob(File.join(@options[:glyph_folder], '*.svg')).each do |file|
         glyph = Glyph.new(file, @options[:glyph_folder], self)
         @character_sheet.add file
         add glyph.to_node

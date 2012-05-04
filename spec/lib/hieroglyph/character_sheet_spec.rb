@@ -5,7 +5,7 @@ describe Hieroglyph::CharacterSheet do
 
     before :each do
       module Hieroglyph
-        def log(*)
+        def self.log(*)
         end
       end
       @character_sheet = Hieroglyph::CharacterSheet.new({:output_folder => '/tmp', :name => 'sheet'})
