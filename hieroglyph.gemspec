@@ -17,10 +17,4 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'nokogiri', '>= 0'
   gem.add_dependency 'savage', '>= 0'
-
-  gem.add_development_dependency 'bundler'
-  gem.add_development_dependency 'rspec',       '~> 2.8.0'
-  gem.add_development_dependency 'rspec'
-  gem.add_development_dependency 'mocha'
-  gem.add_development_dependency 'bourne'
 end
