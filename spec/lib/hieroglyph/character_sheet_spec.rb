@@ -4,6 +4,10 @@ describe Hieroglyph::CharacterSheet do
   context 'A CharacterSheet' do
 
     before :each do
+      module Hieroglyph
+        def log(*)
+        end
+      end
       @character_sheet = Hieroglyph::CharacterSheet.new({:output_folder => '/tmp', :name => 'sheet'})
       @path = File.expand_path('../../../support/test.svg', __FILE__)
     end
