@@ -11,6 +11,8 @@ Usage: hieroglyph OPTIONS
 
 Run hieroglyph to generate an SVG font from a folder of SVG glyphs.
 
+Report any problems here: http://github.com/averyvery/hieroglyph/issues
+
 Options:
     EOS
 
