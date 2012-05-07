@@ -1,5 +1,6 @@
-require "nokogiri"
-require "savage"
+require 'nokogiri'
+require 'savage'
+require 'oniguruma'
 
 module Hieroglyph
 
