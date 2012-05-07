@@ -1,6 +1,5 @@
 require 'nokogiri'
 require 'savage'
-require 'oniguruma'
 
 module Hieroglyph
 
@@ -18,11 +17,10 @@ module Hieroglyph
       'path' => 'convert_path'
     }
 
-    NAME_REGEX = /^..*?(?=(-|\.))/
-
-    UNICODE_REGEX = /(?<=^&#(x|X)).*(?=;)/
-
     @@too_many_shapes = false
+
+    def match(str, pattern_start, pattern, pattern_end)
+    end
 
     def initialize(file, source, font)
       @font = font
@@ -33,9 +31,10 @@ module Hieroglyph
     end
 
     def set_name(file, source)
-      @name = file.gsub(source, '').gsub('/', '').match(NAME_REGEX).to_s
-      unicode = @name.match(UNICODE_REGEX)
-      if unicode
+      @name = file.gsub(source, '').gsub('/', '')
+      @name = @name.match(/^..*?(-|\.)/).to_s.chop
+      unicode = @name.match(/^&#(x|X).*?;/).to_s.gsub(/^&#(x|X)/, '').gsub(/;/, '')
+      unless unicode.empty?
         @font.unicode_values.push(unicode.to_s.upcase)
       else
         @font.characters.push(@name)

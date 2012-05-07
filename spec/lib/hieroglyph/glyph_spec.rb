@@ -25,6 +25,7 @@ describe Hieroglyph::Glyph do
     after :each do
       system('rm /tmp/glyphs/a-test.svg')
     end
+
     it 'sets a name when given simple letters' do
       @glyph.set_name('/tmp/glyphs/a-file.svg', '/tmp/glyphs/')
       @glyph.name.should eql 'a'
@@ -43,6 +44,11 @@ describe Hieroglyph::Glyph do
     it 'sets a name when given a dash' do
       @glyph.set_name('/tmp/glyphs/--file.svg', '/tmp/glyphs/')
       @glyph.name.should eql '-'
+    end
+
+    it 'sets a name when given a single-letter filename' do
+      @glyph.set_name('/tmp/glyphs/a.svg', '/tmp/glyphs/')
+      @glyph.name.should eql 'a'
     end
 
     it 'sets a name when given unicode' do

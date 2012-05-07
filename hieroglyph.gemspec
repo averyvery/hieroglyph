@@ -17,5 +17,4 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'nokogiri', '>= 0'
   gem.add_dependency 'savage', '>= 0'
-  gem.add_dependency 'oniguruma', '>= 0'
 end

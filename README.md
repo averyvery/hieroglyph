@@ -1,4 +1,4 @@
-# Hieroglyph 0.1.2
+# Hieroglyph 0.1.3
 
 Icon fonts are a great way to add sharp, flexible icons to your website using @font-face. [Chris Coyier thinks they're a good idea](http://css-tricks.com/using-fonts-for-icons/), and you should too.
 
