@@ -86,3 +86,4 @@ If you want to help out, great! As an inexperienced dev, I'd appreciate any help
 - [Stephen Wyatt Bush](http://stephenwyattbush.com/), for his in-depth [tutorial.](http://blog.stephenwyattbush.com/2012/02/01/making-an-icon-font)
 - [Jeremy Holland](http://www.jeremypholland.com/), for the [Savage SVG parsing gem.](https://github.com/awebneck/savage)
 - [Inkscape contributors](https://launchpad.net/inkscape/+topcontributors), who provided the original SVG font tool I used a lot on this project.
+- [P.J. Onori](http://somerandomdude.com/work/iconic/) for creating the open source Iconic icons, which I use as example icons.
