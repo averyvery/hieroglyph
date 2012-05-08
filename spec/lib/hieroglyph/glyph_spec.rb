@@ -75,8 +75,10 @@ describe Hieroglyph::Glyph do
     end
 
     it 'reports too many if given multiple shapes' do
-      @glyph.should_receive(:report_too_many)
-      @glyph.contents = Nokogiri::XML('<?xml version="1.0" encoding="utf-8"?><svg><polygon points="2,2" /><path /></svg>')
+      @glyph.should_receive(:report_too_many).exactly(2).times
+      @glyph.contents = Nokogiri::XML('<?xml version="1.0" encoding="utf-8"?><svg><polygon points="2,2" /><path fill="" /></svg>')
+      @glyph.stub!(:convert_path)
+      @glyph.stub!(:convert_polygon)
       @glyph.parse_shapes
     end
 

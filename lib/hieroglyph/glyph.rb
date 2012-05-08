@@ -18,6 +18,7 @@ module Hieroglyph
     }
 
     @@too_many_shapes = false
+    @@shape_found = false
 
     def match(str, pattern_start, pattern, pattern_end)
     end
@@ -43,24 +44,21 @@ module Hieroglyph
 
     def parse_shapes
       path = Savage::Path.new
-      count = 0
       SHAPE_HANDLERS.each do |type, method|
-        contents = @contents.root.at_css(type)
-        if contents
-          count += 1
-          if count > 1
-            report_too_many
-          else
-            path = self.method(method).call(type, contents)
-          end
+        contents = @contents.root.css(type)
+        unless contents.length == 0
+          report_too_many if contents.length > 1
+          report_too_many if @shape_found
+          path = self.method(method).call(type, contents.first)
+          @shape_found = true
         end
       end
       path
     end
 
     def convert_polygon(type, content)
-      Hieroglyph.log "polygon found - converting", 9
-      points = content["points"].split(" ")
+      Hieroglyph.log 'polygon found - converting', 9
+      points = content['points'].split(" ")
       Savage::Path.new do |path|
         start_position = points.shift.split(",")
         path.move_to(start_position[0], start_position[1])
@@ -75,7 +73,7 @@ module Hieroglyph
 
     def convert_path(type, content)
       Hieroglyph.log 'path found', 9
-      path = Savage::Parser.parse content['d']
+      path = Savage::Parser.parse(content['d'])
       flip(path)
     end
 
