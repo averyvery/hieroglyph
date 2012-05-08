@@ -19,7 +19,6 @@ module Hieroglyph
       @output_path = File.join(@options[:output_folder], @options[:name]) + '_characters.png'
       Hieroglyph.delete @output_path
       @files = []
-      Hieroglyph.log 'ImageMagick detected - generating character sheet'
     end
 
     def add(file)
@@ -27,6 +26,8 @@ module Hieroglyph
     end
 
     def save
+      Hieroglyph.header 'Character sheet generated'
+      Hieroglyph.log "Saved to #{File.expand_path(@options[:output_folder])}/#{@options[:name]}_characters.svg"
       cmd = ['montage']
       @@montage_args['title'] = @options[:name]
       @@montage_args.each do |arg, value|

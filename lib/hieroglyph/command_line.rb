@@ -22,7 +22,7 @@ Options:
       if @execute
         font = Hieroglyph.make @options
         Hieroglyph.header "#{@options[:name]} generated"
-        Hieroglyph.log "Saved to #{@options[:output_folder]}"
+        Hieroglyph.log "Saved to #{File.expand_path(@options[:output_folder])}/#{@options[:name]}.svg"
         Hieroglyph.log "To create a full set of webfonts, upload to:"
         Hieroglyph.log "http://www.fontsquirrel.com/fontface/generator"
         Hieroglyph.log
