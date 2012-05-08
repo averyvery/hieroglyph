@@ -5,9 +5,8 @@ gem 'savage'
 gem 'nokogiri'
 
 group :test do
+  gem 'rake'
   gem 'savage'
   gem 'nokogiri'
   gem 'rspec'
-  # gem 'mocha'
-  # gem 'bourne'
 end

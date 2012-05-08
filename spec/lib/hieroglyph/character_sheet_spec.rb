@@ -10,6 +10,7 @@ describe Hieroglyph::CharacterSheet do
         def self.header(*)
         end
       end
+      File.delete('/tmp/sheet_characters.png') if File.exists?('/tmp/sheet_characters.png')
       @character_sheet = Hieroglyph::CharacterSheet.new({:output_folder => '/tmp', :name => 'sheet'})
       @path = File.expand_path('../../../support/test.svg', __FILE__)
     end
@@ -19,7 +20,6 @@ describe Hieroglyph::CharacterSheet do
     end
 
     it 'adds a file with a given name' do
-      puts @path
       @character_sheet.add(@path)
       @character_sheet.files.should eql [@path]
     end
@@ -30,5 +30,6 @@ describe Hieroglyph::CharacterSheet do
       File.exists?('/tmp/sheet_characters.png').should be_true
       File.delete('/tmp/sheet_characters.png')
     end
+
   end
 end
