@@ -1,3 +1,5 @@
+require 'escape'
+
 module Hieroglyph
 
   class CharacterSheet
@@ -5,11 +7,11 @@ module Hieroglyph
     attr_accessor :files, :output_path
 
     @@montage_args = {
-      'background' => '#ffffff',
-      'fill' => '#000000',
-      'geometry' => '150x150+25+25',
-      'label' => '%t',
-      'mattecolor' => '#ffffff'
+      '-background' => '#ffffff',
+      '-fill' => '#000000',
+      '-mattecolor' => '#ffffff',
+      '-geometry' => '150x150+25+25',
+      '-label' => '%t'
     }
 
     def initialize(options)
@@ -25,16 +27,18 @@ module Hieroglyph
     end
 
     def save
-      cmd = 'montage'
+      cmd = ['montage']
       @@montage_args['title'] = @options[:name]
       @@montage_args.each do |arg, value|
-        cmd << " -#{arg} #{value}"
+        cmd.push arg
+        cmd.push value
       end
       @files.each do |file|
-        cmd << " #{file}"
+        cmd.push file
       end
-      cmd << " #{@output_path}"
-      `#{cmd}`
+      cmd.push @output_path
+      cmd = Escape.shell_command(cmd)
+      system(cmd)
     end
   end
 

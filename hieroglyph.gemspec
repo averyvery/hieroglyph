@@ -17,4 +17,5 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'nokogiri', '>= 0'
   gem.add_dependency 'savage', '>= 0'
+  gem.add_dependency 'escape', '>= 0'
 end
