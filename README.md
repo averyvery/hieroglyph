@@ -78,7 +78,7 @@ If you want to help out, great! As an inexperienced dev, I'd appreciate any help
 
     bundle install
     rake install
-    rake test
+    bundle exec rake
 
 ## Thanks
 
