@@ -8,8 +8,6 @@ describe Hieroglyph::Font do
       module Hieroglyph
         def self.log(*)
         end
-        def self.header(*)
-        end
       end
 
       system('rm -rf /tmp/glyphs/')

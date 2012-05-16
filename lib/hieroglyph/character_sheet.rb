@@ -26,7 +26,6 @@ module Hieroglyph
     end
 
     def save
-      Hieroglyph.header 'Character sheet generated'
       cmd = ['montage']
       @@montage_args['title'] = @options[:name]
       @@montage_args.each do |arg, value|
@@ -39,7 +38,7 @@ module Hieroglyph
       cmd.push @output_path
       cmd = Escape.shell_command(cmd)
       system(cmd)
-      Hieroglyph.log "Saved to #{File.expand_path(@options[:output_folder])}/#{@options[:name]}_characters.svg"
+      Hieroglyph.success "Character sheet saved: #{File.expand_path(@options[:output_folder])}/#{@options[:name]}_characters.svg"
     end
   end
 

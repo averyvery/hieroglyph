@@ -20,16 +20,14 @@ Options:
       @execute = true
       parse_options
       if @execute
+        Hieroglyph.log
         font = Hieroglyph.make @options
-        Hieroglyph.header "#{@options[:name]} generated"
-        Hieroglyph.log "Saved to #{File.expand_path(@options[:output_folder])}/#{@options[:name]}.svg"
-        Hieroglyph.log "To create a full set of webfonts, upload to:"
-        Hieroglyph.log "http://www.fontsquirrel.com/fontface/generator"
-        Hieroglyph.log
-        Hieroglyph.log "If you're having trouble uploading SVGs, try converting to a TTF first using http://www.freefontconverter.com"
-        Hieroglyph.log
+        Hieroglyph.success "#{@options[:name]} generated saved to #{File.expand_path(@options[:output_folder])}/#{@options[:name]}.svg"
         Hieroglyph.log "Single characters: #{font.characters.join(',')}"
         Hieroglyph.log "Unicode characters: #{font.unicode_values.join(',')}"
+        Hieroglyph.log
+        Hieroglyph.log "To create a full set of webfonts, upload to http://www.fontsquirrel.com/fontface/generator"
+        Hieroglyph.log "If you're having trouble uploading SVGs, try converting to a TTF first using http://www.freefontconverter.com"
         Hieroglyph.log
       end
     end

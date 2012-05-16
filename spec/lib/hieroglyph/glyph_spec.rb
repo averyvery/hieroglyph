@@ -7,8 +7,6 @@ describe Hieroglyph::Glyph do
       module Hieroglyph
         def self.log(*)
         end
-        def self.header(*)
-        end
       end
       system('rm -rf /tmp/glyphs/')
       system('mkdir /tmp/glyphs/')

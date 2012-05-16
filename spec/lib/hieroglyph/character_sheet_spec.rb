@@ -7,8 +7,6 @@ describe Hieroglyph::CharacterSheet do
       module Hieroglyph
         def self.log(*)
         end
-        def self.header(*)
-        end
       end
       File.delete('/tmp/sheet_characters.png') if File.exists?('/tmp/sheet_characters.png')
       @character_sheet = Hieroglyph::CharacterSheet.new({:output_folder => '/tmp', :name => 'sheet'})

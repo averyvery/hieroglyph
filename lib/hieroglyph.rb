@@ -6,10 +6,20 @@ module Hieroglyph
     puts str.rjust(str.length + pad)
   end
 
-  def self.header(str)
-    puts ""
-    puts "=== #{str} ==="
-    puts ""
+  def self.colorize(text, color_code, pad)
+    Hieroglyph.log("\e[#{color_code}m#{text}\e[0m", pad)
+  end
+
+  def self.status(str, pad=2)
+    colorize(str, 33, pad)
+  end
+
+  def self.error(str, pad=2)
+    colorize(str, 31, pad)
+  end
+
+  def self.success(str, pad=2)
+    colorize(str, 32, pad)
   end
 
   def self.make(options)
@@ -23,7 +33,7 @@ module Hieroglyph
   def self.delete(file)
     if File.exist? file
       trimmed_file = file.gsub(/\.\//, '')
-      Hieroglyph.log "#{trimmed_file} exists, deleting"
+      Hieroglyph.status "#{trimmed_file} exists, deleting"
       File.delete file
     end
   end

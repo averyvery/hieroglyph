@@ -27,7 +27,7 @@ module Hieroglyph
       @font = font
       set_name(file, source)
       @contents = Nokogiri::XML(File.new(file))
-      Hieroglyph.log "#{@name} -> reading...", 4
+      Hieroglyph.log "Parsing #{@name}", 2
       @path = parse_shapes
     end
 
@@ -72,19 +72,18 @@ module Hieroglyph
     end
 
     def convert_path(type, content)
-      Hieroglyph.log 'path found', 9
       path = Savage::Parser.parse(content['d'])
       flip(path)
     end
 
     def report_invalid(type, content)
-      Hieroglyph.log "#{type} found - this shape is invalid!", 9
-      Hieroglyph.log "'make compound path' in your vector tool to fix", 9
+      Hieroglyph.error "#{type} found - this shape is invalid!", 4
+      Hieroglyph.error "'make compound path' in your vector tool to fix", 4
     end
 
     def report_too_many
       unless @too_many
-        Hieroglyph.log 'too many shapes! your icon might look weird as a result', 9
+        Hieroglyph.error 'too many shapes! your icon might look weird as a result', 4
         @too_many = true
       end
     end

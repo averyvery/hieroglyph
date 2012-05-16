@@ -21,7 +21,6 @@ module Hieroglyph
     end
 
     def setup
-      Hieroglyph.header "Generating #{@options[:name]}"
       Hieroglyph.delete @output_path
       @character_sheet = Hieroglyph.imagemagick_installed? ? CharacterSheet.new(@options) : NoopSheet.new
       include 'header'
@@ -52,6 +51,7 @@ module Hieroglyph
         @character_sheet.add file
         add glyph.to_node
       end
+      Hieroglyph.log
     end
   end
 
