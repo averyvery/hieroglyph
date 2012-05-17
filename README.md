@@ -90,17 +90,17 @@ If you want to help out, great! As an inexperienced dev, I'd appreciate any help
 
 ## Version notes
 
-*0.1.4*
+**0.1.4**<br>
 Output is less verbose, more colorful
 
-**0.1.3**
+**0.1.3**<br>
 Fix applied for older versions of ruby
 
-**0.1.2**
+**0.1.2**<br>
 Better logging, more characters supported
 
-**0.1.1**
+**0.1.1**<br>
 Officially a ruby gem, character sheet added
 
-**0.1**
+**0.1**<br>
 Just a .rb script for converting simple SVGs to a font
