@@ -20,9 +20,7 @@ Options:
       @execute = true
       parse_options
       if @execute
-        get_fancy
         font = Hieroglyph.make @options
-        Hieroglyph.header 'Done!'
         Hieroglyph.success "#{@options[:name]} generated saved to #{File.expand_path(@options[:output_folder])}/#{@options[:name]}.svg"
         Hieroglyph.log "Single characters: #{font.characters.join(',')}"
         Hieroglyph.log "Unicode characters: #{font.unicode_values.join(',')}"
@@ -31,13 +29,6 @@ Options:
         Hieroglyph.log "If you're having trouble uploading SVGs, try converting to a TTF first using http://www.freefontconverter.com"
         Hieroglyph.log
       end
-    end
-
-    def get_fancy
-      # http://patorjk.com/software/taag/
-      puts '|_ . _  _ _  _ |   _ |_ '
-      puts '| ||(/_| (_)(_||\/|_)| |'
-      puts '             _| / |     '
     end
 
     def parse_options

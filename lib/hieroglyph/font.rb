@@ -38,6 +38,7 @@ module Hieroglyph
         file.puts @contents
         file.close
       end
+      Hieroglyph.header 'Done!'
       @character_sheet.save
     end
 
@@ -52,7 +53,6 @@ module Hieroglyph
         @character_sheet.add file
         add glyph.to_node
       end
-      Hieroglyph.log
     end
   end
 
