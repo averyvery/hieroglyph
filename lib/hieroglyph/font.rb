@@ -21,6 +21,7 @@ module Hieroglyph
     end
 
     def setup
+      Hieroglyph.header 'Setup:'
       Hieroglyph.delete @output_path
       @character_sheet = Hieroglyph.imagemagick_installed? ? CharacterSheet.new(@options) : NoopSheet.new
       include 'header'
@@ -45,7 +46,7 @@ module Hieroglyph
     end
 
     def add_glyphs
-      Hieroglyph.log
+      Hieroglyph.header 'Reading glyphs:'
       Dir.glob(File.join(@options[:glyph_folder], '*.svg')).each do |file|
         glyph = Glyph.new(file, @options[:glyph_folder], self)
         @character_sheet.add file

@@ -6,8 +6,13 @@ module Hieroglyph
     puts str.rjust(str.length + pad)
   end
 
-  def self.colorize(text, color_code, pad)
-    Hieroglyph.log("\e[#{color_code}m#{text}\e[0m", pad)
+  def self.colorize(str, color_code, pad)
+    Hieroglyph.log("\e[#{color_code}m#{str}\e[0m", pad)
+  end
+
+  def self.header(str)
+    Hieroglyph.log
+    Hieroglyph.log("\033[1m#{str}\e[22m", 0)
   end
 
   def self.status(str, pad=2)
