@@ -87,3 +87,16 @@ If you want to help out, great! As an inexperienced dev, I'd appreciate any help
 - [Jeremy Holland](http://www.jeremypholland.com/), for the [Savage SVG parsing gem.](https://github.com/awebneck/savage)
 - [Inkscape contributors](https://launchpad.net/inkscape/+topcontributors), who provided the original SVG font tool I used a lot on this project.
 - [P.J. Onori](http://somerandomdude.com/work/iconic/) for creating the open source Iconic icons, which I use as example icons.
+
+## Version notes
+
+- *0.1.4*
+  Output is less verbose, more colorful
+- *0.1.3*
+  Fix applied for older versions of ruby
+- *0.1.2*
+  Better logging, more characters supported
+- *0.1.1*
+  Officially a ruby gem, character sheet added
+- *0.1*
+  Just a .rb script for converting simple SVGs to a font
