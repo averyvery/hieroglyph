@@ -1,3 +1,9 @@
+# Interested in Hieroglyph?
+
+That's cool, but you might want to look at [IcoMoon](http://icomoon.io/) first. It's an entirely web-based alternative that's much more flexible, doesn't require as many steps, and should fit any icon-font-related need you have.
+
+<hr>
+
 # Hieroglyph 0.1.5
 
 Icon fonts are a great way to add sharp, flexible icons to your website using @font-face. [Chris Coyier thinks they're a good idea](http://css-tricks.com/using-fonts-for-icons/), and you should too.
